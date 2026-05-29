@@ -1,0 +1,22 @@
+{
+  "name": "camflow-agent",
+  "version": "1.0.0",
+  "description": "CamFlow local agent — bridges cloud commands to OBS and PTZ hardware",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node src/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "install-service": "node service.js --install",
+    "uninstall-service": "node service.js --uninstall"
+  },
+  "dependencies": {
+    "ws": "^8.21.0",
+    "obs-websocket-js": "^5.0.8",
+    "node-windows": "^1.0.0-beta.8"
+  },
+  "devDependencies": {
+    "vitest": "^3.1.0"
+  }
+}
