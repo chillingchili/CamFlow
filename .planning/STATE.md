@@ -2,12 +2,12 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Awaiting `/gsd-plan-phase 1`
+status: Phase 1 planned — awaiting `/gsd-execute-phase 1`
 last_updated: "2026-05-29T05:49:40.523Z"
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 0
+  total_plans: 3
   completed_plans: 0
 ---
 
@@ -38,7 +38,7 @@ progress:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/5 | Not started | - |
+| 1. Foundation | 0/3 | Not started | - |
 | 2. Core UI + Presets | 0/4 | Not started | - |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
