@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-last_updated: "2026-05-29T07:09:37.075Z"
+status: executing
+last_updated: "2026-05-29T07:24:40.521Z"
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 6
+  completed_plans: 4
 ---
 
 # State: CamFlow
@@ -32,21 +32,21 @@ progress:
 
 ## Current Position
 
-**Phase:** Phase 1 Foundation — all 3 plans complete
-**Plan:** 3 of 3 plans complete (Phase 1)
-**Status:** Ready to plan
+**Phase:** Phase 2 Core UI + Presets — 3 of 4 plans complete (latest: 02-03 PTZ Joystick)
+**Plan:** 3 of 4 plans complete (Phase 2)
+**Status:** In progress — 1 plan remaining (02-04 Joystick UI)
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-05-29 |
-| 2. Core UI + Presets | 0/4 | Not started | - |
+| 2. Core UI + Presets | 3/4 | In progress | - |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
 | 4. Sermon + Feed + Integration | 0/4 | Not started | - |
 | 5. Remote Feed + Hardening | 0/2 | Not started | - |
 
 ```
-Progress:  ░░░░░░░░░░░░░░░░░░░░ 0/6 phases planned
+Progress:  ████████████░░░░░░░░ 6/15 plans complete
 ```
 
 ## Performance Metrics
@@ -63,6 +63,8 @@ Progress:  ░░░░░░░░░░░░░░░░░░░░ 0/6 phas
 | Phase 01-foundation P01-03 | 12min | 3 tasks | 22 files |
 | Phase 01-foundation P03 | 12min | 3 tasks | 22 files |
 | Phase 01-foundation P01-02 | 14min | 3 tasks | 13 files |
+| Phase 02-core-ui-preset-management P02-03 | 4min | 3 tasks | 4 files |
+| Phase 02-core-ui-preset-management P02-03 | 4 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -87,7 +89,8 @@ Progress:  ░░░░░░░░░░░░░░░░░░░░ 0/6 phas
 - [Phase 01-foundation]: WebSocket URL derived from window.location (protocol-aware ws:// vs wss://) for Railway deployment compatibility
 - [Phase 01-foundation]: PTZ protocol defaults to REST API (BirdDog HTTP), configurable via PTZ_PROTOCOL env var
 - [Phase 01-foundation]: Agent reconnect uses exponential backoff 1s-30s with ±50% jitter to prevent thundering herd
-- [Phase 01-foundation]: Connection identity tracking (wsId) prevents stale close handlers from nullifying new connections
+- [Phase 02-core-ui-preset-management]: Router-side input validation for PTZ movement (direction whitelist + speed range) before hardware delegation for fast-fail ACK errors
+- [Phase 02-core-ui-preset-management]: Router-side input validation for PTZ movement (direction whitelist + speed range) before hardware delegation for fast-fail ACK errors
 
 ### Pitfalls Being Actively Avoided
 
@@ -117,8 +120,8 @@ Progress:  ░░░░░░░░░░░░░░░░░░░░ 0/6 phas
 
 ## Session Continuity
 
-**Last session:** 2026-05-29T07:09:37.072Z
-**Next action:** `/gsd-plan-phase 2` (Core UI + Presets) or `/gsd-execute-phase 01-foundation` (Phase 1 complete)
+**Last session:** 2026-05-29T07:24:40.518Z
+**Next action:** `/gsd-execute-phase 02-core-ui-preset-management` (Plan 02-04: Joystick UI) or continue with `/gsd-plan-phase 3` if Phase 2 complete
 
 **Phase 1 completion notes:**
 - Cloud backend deployed to Railway (Express + ws + better-sqlite3)

@@ -12,8 +12,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **HWCTRL-01**: Operator can switch OBS scenes via the cloud app, with the command relayed through the local agent's WebSocket tunnel
 - [x] **HWCTRL-02**: Operator can recall a saved PTZ preset (1-8), sending the NDI preset recall command through the local agent
 - [x] **HWCTRL-03**: Operator can save the current PTZ position as a preset (1-8), sending the NDI preset save command through the local agent
-- [ ] **HWCTRL-04**: Operator can manually pan, tilt, and zoom the PTZ camera using joystick-style D-pad controls in the web app
-- [ ] **HWCTRL-05**: Operator can adjust PTZ movement speed (slow/medium/fast) during manual control
+- [x] **HWCTRL-04**: Operator can manually pan, tilt, and zoom the PTZ camera using joystick-style D-pad controls in the web app
+- [x] **HWCTRL-05**: Operator can adjust PTZ movement speed (slow/medium/fast) during manual control
 - [ ] **HWCTRL-06**: Operator can switch between Cam 1 (PTZ) and Cam 2 (Wide) using clearly labeled buttons, with the active camera highlighted
 
 ### Service Flow
@@ -103,8 +103,8 @@ Which phases cover which requirements. Updated during roadmap creation (2026-05-
 | HWCTRL-01 | Phase 1 | Complete |
 | HWCTRL-02 | Phase 1 | Complete |
 | HWCTRL-03 | Phase 1 | Complete |
-| HWCTRL-04 | Phase 2 | Pending |
-| HWCTRL-05 | Phase 2 | Pending |
+| HWCTRL-04 | Phase 2 | Complete |
+| HWCTRL-05 | Phase 2 | Complete |
 | HWCTRL-06 | Phase 2 | Pending |
 | SEG-01 | Phase 3 | Pending |
 | SEG-02 | Phase 3 | Pending |
