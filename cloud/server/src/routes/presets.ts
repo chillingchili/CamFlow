@@ -115,7 +115,7 @@ router.put('/:id', (req: Request, res: Response) => {
 router.patch('/reorder', (req: Request, res: Response) => {
   try {
     const db = getDb();
-    const reorderData = req.body;
+    const reorderData = req.body.order || req.body;
 
     // Validate input is an array
     if (!Array.isArray(reorderData)) {
