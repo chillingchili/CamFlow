@@ -235,6 +235,15 @@ describe('PTZ Movement API', () => {
 
   // ===== POST /api/ptz/stop =====
   describe('POST /api/ptz/stop', () => {
+    it('returns 503 when no agent is connected', async () => {
+      const res = await request(app)
+        .post('/api/ptz/stop')
+        .set('Authorization', `Bearer ${validToken}`)
+        .expect(503);
+
+      expect(res.body.error).toBe('Agent not connected');
+    });
+
     it('returns 202 with requestId when agent is connected', async () => {
       const agentWs = new WebSocket(`${wsBaseUrl}/ws?token=${AGENT_SECRET}`);
       await new Promise<void>((resolve, reject) => {
@@ -254,15 +263,6 @@ describe('PTZ Movement API', () => {
       } finally {
         agentWs.close();
       }
-    });
-
-    it('returns 503 when no agent is connected', async () => {
-      const res = await request(app)
-        .post('/api/ptz/stop')
-        .set('Authorization', `Bearer ${validToken}`)
-        .expect(503);
-
-      expect(res.body.error).toBe('Agent not connected');
     });
   });
 });

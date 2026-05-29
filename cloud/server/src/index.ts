@@ -5,6 +5,7 @@ import { setupWebSocket } from './ws/tunnel.js';
 import authRouter from './routes/auth.js';
 import commandsRouter from './routes/commands.js';
 import presetsRouter from './routes/presets.js';
+import ptzMoveRouter from './routes/ptz-move.js';
 import { authenticateToken } from './middleware/auth.js';
 import { initializeDb } from './db/index.js';
 
@@ -27,6 +28,9 @@ app.use('/api', authenticateToken, commandsRouter);
 
 // Protected preset management routes
 app.use('/api/presets', authenticateToken, presetsRouter);
+
+// Protected PTZ movement routes
+app.use('/api/ptz', authenticateToken, ptzMoveRouter);
 
 const server = createServer(app);
 setupWebSocket(server);
