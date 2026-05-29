@@ -4,6 +4,7 @@ import { createServer } from 'http';
 import { setupWebSocket } from './ws/tunnel.js';
 import authRouter from './routes/auth.js';
 import commandsRouter from './routes/commands.js';
+import presetsRouter from './routes/presets.js';
 import { authenticateToken } from './middleware/auth.js';
 import { initializeDb } from './db/index.js';
 
@@ -23,6 +24,9 @@ app.get('/api/health', authenticateToken, (req, res) => {
 
 // Protected command routes
 app.use('/api', authenticateToken, commandsRouter);
+
+// Protected preset management routes
+app.use('/api/presets', authenticateToken, presetsRouter);
 
 const server = createServer(app);
 setupWebSocket(server);
