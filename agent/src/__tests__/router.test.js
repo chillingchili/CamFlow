@@ -1,10 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // All mock functions must be hoisted so vi.mock factory can access them
-const { mockSetScene, mockRecallPreset, mockSavePreset } = vi.hoisted(() => ({
+const { mockSetScene, mockRecallPreset, mockSavePreset, mockMove, mockZoom, mockStop } = vi.hoisted(() => ({
   mockSetScene: vi.fn(),
   mockRecallPreset: vi.fn(),
   mockSavePreset: vi.fn(),
+  mockMove: vi.fn(),
+  mockZoom: vi.fn(),
+  mockStop: vi.fn(),
 }));
 
 vi.mock('../obs.js', () => ({
@@ -14,6 +17,9 @@ vi.mock('../obs.js', () => ({
 vi.mock('../ptz.js', () => ({
   recallPreset: mockRecallPreset,
   savePreset: mockSavePreset,
+  move: mockMove,
+  zoom: mockZoom,
+  stop: mockStop,
 }));
 
 import { dispatch } from '../router.js';
@@ -33,6 +39,9 @@ beforeEach(() => {
   mockSetScene.mockResolvedValue(undefined);
   mockRecallPreset.mockResolvedValue(undefined);
   mockSavePreset.mockResolvedValue(undefined);
+  mockMove.mockResolvedValue(undefined);
+  mockZoom.mockResolvedValue(undefined);
+  mockStop.mockResolvedValue(undefined);
 });
 
 describe('obs_scene dispatch', () => {
@@ -146,6 +155,173 @@ describe('ptz_preset_save dispatch', () => {
     expect(lastAck.status).toBe('error');
     expect(lastAck.error).toBeDefined();
   }, 10000);
+});
+
+describe('ptz_move dispatch', () => {
+  it('dispatches ptz_move to ptz.move() with correct direction and speed', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_move', direction: 'up', speed: 50 },
+      'req-move-up',
+      sendAck
+    );
+    expect(mockMove).toHaveBeenCalledWith('up', 50);
+  });
+
+  it('sends ACK ok on success', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_move', direction: 'down', speed: 75 },
+      'req-move-ok',
+      sendAck
+    );
+    expect(lastAck).toEqual({
+      type: 'ack',
+      requestId: 'req-move-ok',
+      status: 'ok',
+    });
+  });
+
+  it('sends ACK error on ptz.move() failure', async () => {
+    mockMove.mockRejectedValueOnce(new Error('Camera unreachable'));
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_move', direction: 'right', speed: 30 },
+      'req-move-fail',
+      sendAck
+    );
+    expect(lastAck.type).toBe('ack');
+    expect(lastAck.status).toBe('error');
+    expect(lastAck.error).toContain('Camera unreachable');
+  });
+
+  it('sends ACK error on timeout (5s)', async () => {
+    mockMove.mockImplementationOnce(() => new Promise(() => {}));
+    const sendAck = createSendAck();
+    const dispatchPromise = dispatch(
+      { type: 'ptz_move', direction: 'left', speed: 10 },
+      'req-move-timeout',
+      sendAck
+    );
+    await dispatchPromise;
+    expect(lastAck.type).toBe('ack');
+    expect(lastAck.status).toBe('error');
+    expect(lastAck.error).toContain('timed out');
+  }, 10000);
+
+  it('sends ACK error on invalid direction', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_move', direction: 'diagonal', speed: 50 },
+      'req-invalid-dir',
+      sendAck
+    );
+    expect(lastAck.type).toBe('ack');
+    expect(lastAck.status).toBe('error');
+    expect(lastAck.error).toContain('Invalid direction');
+  });
+
+  it('sends ACK error on speed 0', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_move', direction: 'up', speed: 0 },
+      'req-speed-0',
+      sendAck
+    );
+    expect(lastAck.type).toBe('ack');
+    expect(lastAck.status).toBe('error');
+    expect(lastAck.error).toContain('Speed must be 1-100');
+  });
+
+  it('sends ACK error on speed 101', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_move', direction: 'up', speed: 101 },
+      'req-speed-101',
+      sendAck
+    );
+    expect(lastAck.type).toBe('ack');
+    expect(lastAck.status).toBe('error');
+    expect(lastAck.error).toContain('Speed must be 1-100');
+  });
+});
+
+describe('ptz_zoom dispatch', () => {
+  it('dispatches ptz_zoom to ptz.zoom() with correct direction and speed', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_zoom', direction: 'in', speed: 60 },
+      'req-zoom-in',
+      sendAck
+    );
+    expect(mockZoom).toHaveBeenCalledWith('in', 60);
+  });
+
+  it('sends ACK ok on success', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_zoom', direction: 'out', speed: 40 },
+      'req-zoom-ok',
+      sendAck
+    );
+    expect(lastAck).toEqual({
+      type: 'ack',
+      requestId: 'req-zoom-ok',
+      status: 'ok',
+    });
+  });
+
+  it('sends ACK error on ptz.zoom() failure', async () => {
+    mockZoom.mockRejectedValueOnce(new Error('Zoom motor error'));
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_zoom', direction: 'in', speed: 80 },
+      'req-zoom-fail',
+      sendAck
+    );
+    expect(lastAck.type).toBe('ack');
+    expect(lastAck.status).toBe('error');
+    expect(lastAck.error).toContain('Zoom motor error');
+  });
+});
+
+describe('ptz_stop dispatch', () => {
+  it('dispatches ptz_stop to ptz.stop()', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_stop' },
+      'req-stop',
+      sendAck
+    );
+    expect(mockStop).toHaveBeenCalled();
+  });
+
+  it('sends ACK ok on success', async () => {
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_stop' },
+      'req-stop-ok',
+      sendAck
+    );
+    expect(lastAck).toEqual({
+      type: 'ack',
+      requestId: 'req-stop-ok',
+      status: 'ok',
+    });
+  });
+
+  it('sends ACK error on ptz.stop() failure', async () => {
+    mockStop.mockRejectedValueOnce(new Error('Camera not connected'));
+    const sendAck = createSendAck();
+    await dispatch(
+      { type: 'ptz_stop' },
+      'req-stop-fail',
+      sendAck
+    );
+    expect(lastAck.type).toBe('ack');
+    expect(lastAck.status).toBe('error');
+    expect(lastAck.error).toContain('Camera not connected');
+  });
 });
 
 describe('unknown command type', () => {
