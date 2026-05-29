@@ -195,11 +195,13 @@ describe('Authentication & Database', () => {
       expect(res.body.error).toBeDefined();
     });
 
-    it('returns 403 with malformed Authorization header', async () => {
+    it('returns 401 with malformed Authorization header (no Bearer prefix)', async () => {
       const res = await request(app)
         .get('/api/health')
         .set('Authorization', 'NotABearerToken')
-        .expect(403);
+        .expect(401);
+
+      expect(res.body.error).toBeDefined();
     });
   });
 });
