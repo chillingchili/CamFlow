@@ -62,6 +62,66 @@ export async function savePreset(presetNumber) {
  * @returns {Promise<boolean>}
  */
 /**
+ * Valid directions for pan/tilt movement
+ */
+const MOVE_DIRECTIONS = ['up', 'down', 'left', 'right'];
+
+/**
+ * Valid directions for zoom
+ */
+const ZOOM_DIRECTIONS = ['in', 'out'];
+
+/**
+ * Validate and normalize PTZ speed (1-100)
+ * @param {number} speed
+ * @throws {Error} if speed is not in range 1-100
+ * @returns {number}
+ */
+function validateSpeed(speed) {
+  const s = Number(speed);
+  if (!Number.isFinite(s) || s < 1 || s > 100) {
+    throw new Error('Speed must be 1-100');
+  }
+  return s;
+}
+
+/**
+ * Continuous pan/tilt movement in a direction at a given speed
+ * @param {string} direction - 'up', 'down', 'left', or 'right'
+ * @param {number} speed - 1-100
+ * @returns {Promise<void>}
+ */
+export async function move(direction, speed) {
+  if (!MOVE_DIRECTIONS.includes(direction)) {
+    throw new Error(`Invalid direction: ${direction}. Must be one of: ${MOVE_DIRECTIONS.join(', ')}`);
+  }
+  const s = validateSpeed(speed);
+  await ptzRequest('/v1/ptz/move', { direction, speed: s });
+}
+
+/**
+ * Zoom in or out at a given speed
+ * @param {string} direction - 'in' or 'out'
+ * @param {number} speed - 1-100
+ * @returns {Promise<void>}
+ */
+export async function zoom(direction, speed) {
+  if (!ZOOM_DIRECTIONS.includes(direction)) {
+    throw new Error(`Invalid direction: ${direction}. Must be one of: ${ZOOM_DIRECTIONS.join(', ')}`);
+  }
+  const s = validateSpeed(speed);
+  await ptzRequest('/v1/ptz/zoom', { direction, speed: s });
+}
+
+/**
+ * Immediately halt all PTZ movement
+ * @returns {Promise<void>}
+ */
+export async function stop() {
+  await ptzRequest('/v1/ptz/stop', {});
+}
+
+/**
  * Clear the reachability cache (useful for testing)
  */
 export function clearReachableCache() {
