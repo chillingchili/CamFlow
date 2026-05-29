@@ -96,54 +96,54 @@ Deferred to future release. Tracked but not in current roadmap.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
+Which phases cover which requirements. Updated during roadmap creation (2026-05-29).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HWCTRL-01 | — | Pending |
-| HWCTRL-02 | — | Pending |
-| HWCTRL-03 | — | Pending |
-| HWCTRL-04 | — | Pending |
-| HWCTRL-05 | — | Pending |
-| HWCTRL-06 | — | Pending |
-| SEG-01 | — | Pending |
-| SEG-02 | — | Pending |
-| SEG-03 | — | Pending |
-| SEG-04 | — | Pending |
-| SEG-05 | — | Pending |
-| SEG-06 | — | Pending |
-| PRESET-01 | — | Pending |
-| PRESET-02 | — | Pending |
-| PRESET-03 | — | Pending |
-| PRESET-04 | — | Pending |
-| AUTH-01 | — | Pending |
-| AUTH-02 | — | Pending |
-| AUTH-03 | — | Pending |
-| FEED-01 | — | Pending |
-| FEED-02 | — | Pending |
-| FEED-03 | — | Pending |
-| FEED-04 | — | Pending |
-| FEED-05 | — | Pending |
-| FEED-06 | — | Pending |
-| TRACK-01 | — | Pending |
-| TRACK-02 | — | Pending |
-| TRACK-03 | — | Pending |
-| TRACK-04 | — | Pending |
-| TRACK-05 | — | Pending |
-| TRACK-06 | — | Pending |
-| AGENT-01 | — | Pending |
-| AGENT-02 | — | Pending |
-| AGENT-03 | — | Pending |
-| AGENT-04 | — | Pending |
-| AGENT-05 | — | Pending |
-| AGENT-06 | — | Pending |
-| AGENT-07 | — | Pending |
+| HWCTRL-01 | Phase 1 | Pending |
+| HWCTRL-02 | Phase 1 | Pending |
+| HWCTRL-03 | Phase 1 | Pending |
+| HWCTRL-04 | Phase 2 | Pending |
+| HWCTRL-05 | Phase 2 | Pending |
+| HWCTRL-06 | Phase 2 | Pending |
+| SEG-01 | Phase 3 | Pending |
+| SEG-02 | Phase 3 | Pending |
+| SEG-03 | Phase 4 | Pending |
+| SEG-04 | Phase 3 | Pending |
+| SEG-05 | Phase 3 | Pending |
+| SEG-06 | Phase 3 | Pending |
+| PRESET-01 | Phase 2 | Pending |
+| PRESET-02 | Phase 2 | Pending |
+| PRESET-03 | Phase 2 | Pending |
+| PRESET-04 | Phase 2 | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| FEED-01 | Phase 4 | Pending |
+| FEED-02 | Phase 4 | Pending |
+| FEED-03 | Phase 4 | Pending |
+| FEED-04 | Phase 4 | Pending |
+| FEED-05 | Phase 5 | Pending |
+| FEED-06 | Phase 4 | Pending |
+| TRACK-01 | Phase TB | Pending |
+| TRACK-02 | Phase TB | Pending |
+| TRACK-03 | Phase TB | Pending |
+| TRACK-04 | Phase TB | Pending |
+| TRACK-05 | Phase TB | Pending |
+| TRACK-06 | Phase TB | Pending |
+| AGENT-01 | Phase 1 | Pending |
+| AGENT-02 | Phase 1 | Pending |
+| AGENT-03 | Phase 1 | Pending |
+| AGENT-04 | Phase 1 | Pending |
+| AGENT-05 | Phase 1 | Pending |
+| AGENT-06 | Phase 1 | Pending |
+| AGENT-07 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 37 total
-- Mapped to phases: 0
-- Unmapped: 37 ⚠️
+- v1 requirements: 38 total (traceability table has 38; REQUIREMENTS.md header stated 37 — corrected)
+- Mapped to phases: 38
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-05-29*
-*Last updated: 2026-05-29 after research and scoping*
+*Last updated: 2026-05-29 after roadmap creation (traceability mapped, 38/38 coverage)*
