@@ -51,10 +51,10 @@ CamFlow is a two-track project — Track A (cloud web app + local agent for auto
 - Tunnel stale threshold: 15s
 - JWT expiry: 12 hours
 
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
-- [ ] 01-01-PLAN.md — Cloud Backend (auth, DB, WebSocket server, REST command endpoints)
+- [x] 01-01-PLAN.md — Cloud Backend (auth, DB, WebSocket server, REST command endpoints)
 - [ ] 01-02-PLAN.md — Local Agent (WebSocket tunnel, OBS/PTZ control, ACK protocol, Windows service)
 - [ ] 01-03-PLAN.md — Frontend Core (login, status bar, camera switcher, PTZ preset panel, ACK feedback UX)
 
@@ -187,7 +187,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Not started | - |
+| 1. Foundation | 1/3 | In Progress|  |
 | 2. Core UI + Presets | 0/4 | Not started | - |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
@@ -229,12 +229,12 @@ Phase TB runs in parallel (15-20 days), not on critical path.
 | AGENT-04 | Phase 1 | Pending |
 | AGENT-05 | Phase 1 | Pending |
 | AGENT-06 | Phase 1 | Pending |
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
-| HWCTRL-01 | Phase 1 | Pending |
-| HWCTRL-02 | Phase 1 | Pending |
-| HWCTRL-03 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | ✅ Complete |
+| AUTH-02 | Phase 1 | ✅ Complete |
+| AUTH-03 | Phase 1 | ✅ Complete |
+| HWCTRL-01 | Phase 1 | ✅ Complete |
+| HWCTRL-02 | Phase 1 | ✅ Complete |
+| HWCTRL-03 | Phase 1 | ✅ Complete |
 | HWCTRL-04 | Phase 2 | Pending |
 | HWCTRL-05 | Phase 2 | Pending |
 | HWCTRL-06 | Phase 2 | Pending |

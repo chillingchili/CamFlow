@@ -9,9 +9,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Hardware Control
 
-- [ ] **HWCTRL-01**: Operator can switch OBS scenes via the cloud app, with the command relayed through the local agent's WebSocket tunnel
-- [ ] **HWCTRL-02**: Operator can recall a saved PTZ preset (1-8), sending the NDI preset recall command through the local agent
-- [ ] **HWCTRL-03**: Operator can save the current PTZ position as a preset (1-8), sending the NDI preset save command through the local agent
+- [x] **HWCTRL-01**: Operator can switch OBS scenes via the cloud app, with the command relayed through the local agent's WebSocket tunnel
+- [x] **HWCTRL-02**: Operator can recall a saved PTZ preset (1-8), sending the NDI preset recall command through the local agent
+- [x] **HWCTRL-03**: Operator can save the current PTZ position as a preset (1-8), sending the NDI preset save command through the local agent
 - [ ] **HWCTRL-04**: Operator can manually pan, tilt, and zoom the PTZ camera using joystick-style D-pad controls in the web app
 - [ ] **HWCTRL-05**: Operator can adjust PTZ movement speed (slow/medium/fast) during manual control
 - [ ] **HWCTRL-06**: Operator can switch between Cam 1 (PTZ) and Cam 2 (Wide) using clearly labeled buttons, with the active camera highlighted
@@ -38,9 +38,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Authentication
 
-- [ ] **AUTH-01**: Operator can log in with a shared passphrase via a simple login screen
-- [ ] **AUTH-02**: Login returns a JWT session token stored in browser localStorage, expiring after 12 hours
-- [ ] **AUTH-03**: Passphrase is stored securely using bcrypt hashing in the database
+- [x] **AUTH-01**: Operator can log in with a shared passphrase via a simple login screen
+- [x] **AUTH-02**: Login returns a JWT session token stored in browser localStorage, expiring after 12 hours
+- [x] **AUTH-03**: Passphrase is stored securely using bcrypt hashing in the database
 
 ### Live Camera Feed
 
@@ -100,9 +100,9 @@ Which phases cover which requirements. Updated during roadmap creation (2026-05-
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HWCTRL-01 | Phase 1 | Pending |
-| HWCTRL-02 | Phase 1 | Pending |
-| HWCTRL-03 | Phase 1 | Pending |
+| HWCTRL-01 | Phase 1 | Complete |
+| HWCTRL-02 | Phase 1 | Complete |
+| HWCTRL-03 | Phase 1 | Complete |
 | HWCTRL-04 | Phase 2 | Pending |
 | HWCTRL-05 | Phase 2 | Pending |
 | HWCTRL-06 | Phase 2 | Pending |
@@ -116,9 +116,9 @@ Which phases cover which requirements. Updated during roadmap creation (2026-05-
 | PRESET-02 | Phase 2 | Pending |
 | PRESET-03 | Phase 2 | Pending |
 | PRESET-04 | Phase 2 | Pending |
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
 | FEED-01 | Phase 4 | Pending |
 | FEED-02 | Phase 4 | Pending |
 | FEED-03 | Phase 4 | Pending |
