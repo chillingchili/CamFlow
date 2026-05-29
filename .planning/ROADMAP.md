@@ -51,7 +51,7 @@ CamFlow is a two-track project — Track A (cloud web app + local agent for auto
 - Tunnel stale threshold: 15s
 - JWT expiry: 12 hours
 
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [x] 01-01-PLAN.md — Cloud Backend (auth, DB, WebSocket server, REST command endpoints)
@@ -187,7 +187,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/3 | In Progress|  |
+| 1. Foundation | 2/3 | In Progress|  |
 | 2. Core UI + Presets | 0/4 | Not started | - |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
