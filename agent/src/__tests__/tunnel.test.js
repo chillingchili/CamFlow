@@ -21,7 +21,7 @@ vi.mock('../config.js', () => ({
 }));
 
 vi.mock('../health.js', () => ({
-  getSnapshot: vi.fn().mockReturnValue({ obs: false, ptz: false, timestamp: Date.now() }),
+  getSnapshot: vi.fn().mockResolvedValue({ obs: true, ptz: true, timestamp: Date.now() }),
 }));
 
 import config from '../config.js';

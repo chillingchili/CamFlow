@@ -75,8 +75,8 @@ function startHeartbeat() {
   if (heartbeatTimer) {
     clearInterval(heartbeatTimer);
   }
-  heartbeatTimer = setInterval(() => {
-    const snapshot = getSnapshot();
+  heartbeatTimer = setInterval(async () => {
+    const snapshot = await getSnapshot();
     lastHeartbeat = Date.now();
     send({
       type: 'health',

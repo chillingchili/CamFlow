@@ -1,4 +1,10 @@
-// Stub — will be implemented in GREEN phase
-export function getSnapshot() {
-  return { obs: false, ptz: false, timestamp: Date.now() };
+import { isConnected } from './obs.js';
+import { isReachable } from './ptz.js';
+
+export async function getSnapshot() {
+  const [obs, ptz] = await Promise.all([
+    Promise.resolve(isConnected()),
+    isReachable(),
+  ]);
+  return { obs, ptz, timestamp: Date.now() };
 }
