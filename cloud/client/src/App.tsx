@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router';
 import { Login } from './pages/Login';
+import { Dashboard } from './components/Dashboard';
+import { CommandPanel } from './components/CommandPanel';
 
 function ProtectedRoute() {
   const token = localStorage.getItem('camflow_token');
@@ -9,11 +11,11 @@ function ProtectedRoute() {
   return <Outlet />;
 }
 
-function Dashboard() {
+function MainDashboard() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pt-14">
-      <p className="text-gray-700 dark:text-gray-300 p-4">Dashboard — ready for command panel.</p>
-    </div>
+    <Dashboard>
+      <CommandPanel />
+    </Dashboard>
   );
 }
 
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Dashboard />,
+        element: <MainDashboard />,
       },
     ],
   },
