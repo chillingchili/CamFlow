@@ -90,12 +90,9 @@ describe('PresetGrid', () => {
       expect(screen.getByText('Pastor Closeup')).toBeInTheDocument();
     });
 
-    // Find the toggle for the first preset (Pastor Closeup, active=true)
-    const toggles = screen.getAllByRole('checkbox');
-    const firstToggle = toggles[0];
-
-    // First preset is active, clicking should deactivate
-    await userEvent.click(firstToggle);
+    // Click the preset card to toggle active
+    const card = screen.getByText('Pastor Closeup').closest('[class*="rounded-lg"]')!;
+    await userEvent.click(card);
 
     expect(api.updatePreset).toHaveBeenCalledWith(1, { active: false });
   });
@@ -190,7 +187,7 @@ describe('PresetGrid', () => {
     expect(dragHandles.length).toBe(8);
   });
 
-  // Test 9: Inactive presets show disabled styling
+  // Test 9: Inactive presets show different styling than active ones
   it('inactive presets show visually distinct styling', async () => {
     renderWithProviders(<PresetGrid />);
 
@@ -198,10 +195,9 @@ describe('PresetGrid', () => {
       expect(screen.getByText('Choir Loft')).toBeInTheDocument();
     });
 
-    // Choir Loft is inactive - its toggle should be unchecked
-    const toggles = screen.getAllByRole('checkbox');
-    // Choir Loft is preset #3, index 2
-    const choirToggle = toggles[2];
-    expect(choirToggle).not.toBeChecked();
+    // Choir Loft is inactive — its card should NOT have green active styling
+    const choirCard = screen.getByText('Choir Loft').closest('[class*="rounded-lg"]')!;
+    expect(choirCard.className).not.toContain('bg-green');
+    expect(choirCard.className).toContain('bg-white');
   });
 });

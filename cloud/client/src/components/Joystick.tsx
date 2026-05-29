@@ -48,9 +48,19 @@ function DirectionButton({
       className="relative flex items-center justify-center w-16 h-16 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 active:bg-blue-100 dark:active:bg-blue-900/30 rounded-xl border border-gray-200 dark:border-gray-600 transition-colors select-none touch-none"
       aria-label={label}
     >
-      <span className="text-lg font-bold text-gray-700 dark:text-gray-200">
-        {label === 'Up' ? '▲' : label === 'Down' ? '▼' : label === 'Left' ? '◀' : '▶'}
-      </span>
+      <svg
+        className={`w-5 h-5 text-gray-700 dark:text-gray-200 ${
+          label === 'Up' ? '-rotate-90' : label === 'Down' ? 'rotate-90' : label === 'Left' ? 'rotate-180' : ''
+        }`}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12 19V5m-7 7l7-7 7 7" />
+      </svg>
       <span className="absolute top-0.5 right-1 text-[10px] font-mono text-gray-400 dark:text-gray-500">
         {keyHint}
       </span>

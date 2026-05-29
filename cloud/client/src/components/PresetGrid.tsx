@@ -83,10 +83,11 @@ function PresetCard({
       onDragStart={(e) => onDragStart(e, index)}
       onDragOver={(e) => onDragOver(e, index)}
       onDrop={(e) => onDrop(e, index)}
-      className={`flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-lg border transition-colors ${
+      onClick={handleToggle}
+      className={`flex items-center gap-3 p-4 rounded-lg border transition-colors cursor-pointer ${
         preset.active
-          ? 'border-gray-200 dark:border-gray-700'
-          : 'border-gray-100 dark:border-gray-800 opacity-70'
+          ? 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-700'
+          : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
       }`}
     >
       {/* Drag Handle */}
@@ -143,18 +144,6 @@ function PresetCard({
         />
       </div>
 
-      {/* Active Toggle */}
-      <label className="flex-shrink-0 relative inline-flex items-center cursor-pointer">
-        <input
-          type="checkbox"
-          role="checkbox"
-          checked={preset.active}
-          onChange={handleToggle}
-          className="sr-only peer"
-          aria-label={`Toggle active for ${preset.name}`}
-        />
-        <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
-      </label>
     </div>
   );
 }
