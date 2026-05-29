@@ -2,6 +2,7 @@ import express from 'express';
 import { createServer } from 'http';
 import { setupWebSocket } from './ws/tunnel.js';
 import authRouter from './routes/auth.js';
+import commandsRouter from './routes/commands.js';
 import { authenticateToken } from './middleware/auth.js';
 import { initializeDb } from './db/index.js';
 
@@ -19,8 +20,8 @@ app.get('/api/health', authenticateToken, (req, res) => {
   res.json({ status: 'ok', user: (req as any).user });
 });
 
-// Placeholder for commands router (Task 3 will add this)
-// app.use('/api', authenticateToken, commandsRouter);
+// Protected command routes
+app.use('/api', authenticateToken, commandsRouter);
 
 const server = createServer(app);
 setupWebSocket(server);
