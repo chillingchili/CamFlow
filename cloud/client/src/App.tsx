@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router';
 import { Login } from './pages/Login';
 import { Dashboard } from './components/Dashboard';
-import { CommandPanel } from './components/CommandPanel';
+import { TabBar } from './components/TabBar';
+import { SettingsPanel } from './components/SettingsPanel';
+import { Setup } from './pages/Setup';
+import { Live } from './pages/Live';
 
 function ProtectedRoute() {
   const token = localStorage.getItem('camflow_token');
@@ -12,9 +16,18 @@ function ProtectedRoute() {
 }
 
 function MainDashboard() {
+  const [activeTab, setActiveTab] = useState<'setup' | 'live'>('setup');
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
   return (
     <Dashboard>
-      <CommandPanel />
+      <TabBar
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        onSettingsOpen={() => setSettingsOpen(true)}
+      />
+      <SettingsPanel isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
+      {activeTab === 'setup' ? <Setup /> : <Live />}
     </Dashboard>
   );
 }
