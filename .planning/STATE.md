@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-last_updated: "2026-05-29T07:25:17.386Z"
+last_updated: "2026-05-29T15:28:00.000Z"
 progress:
   total_phases: 6
   completed_phases: 1
@@ -66,6 +66,7 @@ Progress:  ███████░░░░░░░░░░░░░░░ 7/
 | Phase 02-core-ui-preset-management P02-03 | 4min | 3 tasks | 4 files |
 | Phase 02-core-ui-preset-management P02-03 | 4 | 3 tasks | 4 files |
 | Phase 02-core-ui-preset-management P02-01 | 5 | 3 tasks | 5 files |
+| Phase 02-core-ui-preset-management P02-02 | 9min | 3 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,11 @@ Progress:  ███████░░░░░░░░░░░░░░░ 7/
 - [Phase 02-core-ui-preset-management]: Router-side input validation for PTZ movement (direction whitelist + speed range) before hardware delegation for fast-fail ACK errors
 - [Phase 02-core-ui-preset-management]: Router-side input validation for PTZ movement (direction whitelist + speed range) before hardware delegation for fast-fail ACK errors
 - [Phase 02-core-ui-preset-management]: Partial PUT updates use dynamic SQL columns — only provided fields in request body update the corresponding columns
+- [Phase 02-core-ui-preset-management]: Tabs use ARIA role="tab" for accessibility (keyboard navigable, screen reader friendly)
+- [Phase 02-core-ui-preset-management]: Drag reorder uses HTML5 native DragEvent API with optimistic update + rollback on error
+- [Phase 02-core-ui-preset-management]: Joystick press-and-hold uses onPointerDown/Up events (touch + mouse compatible) with stop on release
+- [Phase 02-core-ui-preset-management]: Keyboard shortcuts skip input elements to avoid interfering with text entry
+- [Phase 02-core-ui-preset-management]: Separate pan speed and zoom speed controls for independent D-pad and zoom velocity tuning
 
 ### Pitfalls Being Actively Avoided
 
@@ -122,8 +128,14 @@ Progress:  ███████░░░░░░░░░░░░░░░ 7/
 
 ## Session Continuity
 
-**Last session:** 2026-05-29T07:25:17.382Z
-**Next action:** `/gsd-execute-phase 02-core-ui-preset-management` (Plan 02-04: Joystick UI) or continue with `/gsd-plan-phase 3` if Phase 2 complete
+**Last session:** 2026-05-29T15:28:00.000Z
+**Next action:** Phase 2 complete — ready for `/gsd-plan-phase 3` (Auto-Director Engine)
+
+**Phase 2 completion notes:**
+- Backend API extended: preset CRUD (GET/PUT/PATCH), PTZ movement (move/zoom/stop)
+- Agent router extended: presets + PTZ movement dispatch
+- Operator frontend: two-tab navigation (Setup/Live), 8-slot preset grid with inline edit/drag reorder, cross D-pad PTZ joystick with keyboard shortcuts, camera switcher, settings panel
+- All 4 Phase 2 plans complete with 62 total passing frontend tests
 
 **Phase 1 completion notes:**
 - Cloud backend deployed to Railway (Express + ws + better-sqlite3)

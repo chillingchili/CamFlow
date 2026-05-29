@@ -18,7 +18,7 @@ CamFlow is a two-track project — Track A (cloud web app + local agent for auto
 ## Phases
 
 - [x] **Phase 1: Foundation** — Cloud backend + agent tunnel + basic hardware control with ACK protocol (completed 2026-05-29)
-- [ ] **Phase 2: Core UI + Preset Management** — Operator interface for camera control and preset configuration
+- [x] **Phase 2: Core UI + Preset Management** — Operator interface for camera control and preset configuration (completed 2026-05-29)
 - [ ] **Phase 3: Auto-Director Engine** — Worship mode preset cycling, service segments, Go Live flow
 - [ ] **Phase TB: Autotracker Rebuild (Parallel)** — Two-stage AI pipeline, Kivy GUI, boundary range limit
 - [ ] **Phase 4: Sermon Mode + Live Feed + Integration** — Full service flow, agent autotracker lifecycle, local camera feed
@@ -76,7 +76,7 @@ Plans:
 4. Operator switches between Cam 1 (PTZ) and Cam 2 (Wide) using large labeled buttons with the active camera prominently highlighted
 5. Presets configured in Setup screen are immediately available for recall in the Live view — configuration persists across browser sessions and cloud redeploys (SQLite on Railway volume mount)
 
-**Plans:** 2/3 plans executed
+**Plans:** 4/4 plans complete
 
 ---
 
@@ -188,7 +188,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-05-29 |
-| 2. Core UI + Presets | 2/3 | In Progress|  |
+| 2. Core UI + Presets | 3/3 | Complete | 2026-05-29 |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
 | 4. Sermon + Feed + Integration | 0/4 | Not started | - |
@@ -235,13 +235,13 @@ Phase TB runs in parallel (15-20 days), not on critical path.
 | HWCTRL-01 | Phase 1 | ✅ Complete |
 | HWCTRL-02 | Phase 1 | ✅ Complete |
 | HWCTRL-03 | Phase 1 | ✅ Complete |
-| HWCTRL-04 | Phase 2 | Pending |
-| HWCTRL-05 | Phase 2 | Pending |
-| HWCTRL-06 | Phase 2 | Pending |
-| PRESET-01 | Phase 2 | Pending |
-| PRESET-02 | Phase 2 | Pending |
-| PRESET-03 | Phase 2 | Pending |
-| PRESET-04 | Phase 2 | Pending |
+| HWCTRL-04 | Phase 2 | ✅ Complete |
+| HWCTRL-05 | Phase 2 | ✅ Complete |
+| HWCTRL-06 | Phase 2 | ✅ Complete |
+| PRESET-01 | Phase 2 | ✅ Complete |
+| PRESET-02 | Phase 2 | ✅ Complete |
+| PRESET-03 | Phase 2 | ✅ Complete |
+| PRESET-04 | Phase 2 | ✅ Complete |
 | SEG-01 | Phase 3 | Pending |
 | SEG-02 | Phase 3 | Pending |
 | SEG-04 | Phase 3 | Pending |
