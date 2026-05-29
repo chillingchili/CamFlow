@@ -62,12 +62,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Local Agent
 
-- [ ] **AGENT-01**: Local agent runs as a Windows service via node-windows, starting automatically on boot without requiring user login
-- [ ] **AGENT-02**: Local agent maintains a persistent outbound WebSocket tunnel to the cloud backend, with automatic reconnection using exponential backoff (max 30s interval)
-- [ ] **AGENT-03**: Every cloud-to-hardware command includes a requestId; the agent acknowledges success or failure so the UI accurately reflects hardware state
-- [ ] **AGENT-04**: Agent reports health status every 5 seconds via the WebSocket tunnel: agent connection, OBS connection, PTZ camera reachability, autotracker status, and live feed status
-- [ ] **AGENT-05**: Agent controls OBS scenes via obs-websocket-js (WebSocket v5 protocol)
-- [ ] **AGENT-06**: Agent controls the BirdDog PTZ camera via NDI PTZ commands (preset recall, pan, tilt, zoom)
+- [x] **AGENT-01**: Local agent runs as a Windows service via node-windows, starting automatically on boot without requiring user login
+- [x] **AGENT-02**: Local agent maintains a persistent outbound WebSocket tunnel to the cloud backend, with automatic reconnection using exponential backoff (max 30s interval)
+- [x] **AGENT-03**: Every cloud-to-hardware command includes a requestId; the agent acknowledges success or failure so the UI accurately reflects hardware state
+- [x] **AGENT-04**: Agent reports health status every 5 seconds via the WebSocket tunnel: agent connection, OBS connection, PTZ camera reachability, autotracker status, and live feed status
+- [x] **AGENT-05**: Agent controls OBS scenes via obs-websocket-js (WebSocket v5 protocol)
+- [x] **AGENT-06**: Agent controls the BirdDog PTZ camera via NDI PTZ commands (preset recall, pan, tilt, zoom)
 - [ ] **AGENT-07**: Agent can spawn and gracefully kill the Python autotracker subprocess when entering or leaving Sermon mode
 
 ## v2 Requirements
@@ -131,12 +131,12 @@ Which phases cover which requirements. Updated during roadmap creation (2026-05-
 | TRACK-04 | Phase TB | Pending |
 | TRACK-05 | Phase TB | Pending |
 | TRACK-06 | Phase TB | Pending |
-| AGENT-01 | Phase 1 | Pending |
-| AGENT-02 | Phase 1 | Pending |
-| AGENT-03 | Phase 1 | Pending |
-| AGENT-04 | Phase 1 | Pending |
-| AGENT-05 | Phase 1 | Pending |
-| AGENT-06 | Phase 1 | Pending |
+| AGENT-01 | Phase 1 | Complete |
+| AGENT-02 | Phase 1 | Complete |
+| AGENT-03 | Phase 1 | Complete |
+| AGENT-04 | Phase 1 | Complete |
+| AGENT-05 | Phase 1 | Complete |
+| AGENT-06 | Phase 1 | Complete |
 | AGENT-07 | Phase 4 | Pending |
 
 **Coverage:**

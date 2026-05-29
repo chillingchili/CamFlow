@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-last_updated: "2026-05-29T06:25:07.737Z"
+last_updated: "2026-05-29T06:27:22.674Z"
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # State: CamFlow
@@ -62,6 +62,7 @@ Progress:  ░░░░░░░░░░░░░░░░░░░░ 0/6 phas
 | Phase 01-foundation P01-01 | 8min | 3 tasks | 13 files |
 | Phase 01-foundation P01-03 | 12min | 3 tasks | 22 files |
 | Phase 01-foundation P03 | 12min | 3 tasks | 22 files |
+| Phase 01-foundation P01-02 | 14min | 3 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -84,6 +85,9 @@ Progress:  ░░░░░░░░░░░░░░░░░░░░ 0/6 phas
 | ACK-based optimistic UI pattern | 1 (P01-03) | Latest-command-wins: pending buttons replaced by newest command, confirmed on ACK, error flash on NACK |
 | WebSocket health derived from message receipt | 1 (P01-03) | Agent=true when receiving messages, false on WS close; wasEverConnected flag avoids red indicators on first load |
 - [Phase 01-foundation]: WebSocket URL derived from window.location (protocol-aware ws:// vs wss://) for Railway deployment compatibility
+- [Phase 01-foundation]: PTZ protocol defaults to REST API (BirdDog HTTP), configurable via PTZ_PROTOCOL env var
+- [Phase 01-foundation]: Agent reconnect uses exponential backoff 1s-30s with ±50% jitter to prevent thundering herd
+- [Phase 01-foundation]: Connection identity tracking (wsId) prevents stale close handlers from nullifying new connections
 
 ### Pitfalls Being Actively Avoided
 
@@ -113,7 +117,7 @@ Progress:  ░░░░░░░░░░░░░░░░░░░░ 0/6 phas
 
 ## Session Continuity
 
-**Last session:** 2026-05-29T06:25:07.734Z
+**Last session:** 2026-05-29T06:27:22.671Z
 **Next action:** `/gsd-plan-phase 2` (Core UI + Presets) or `/gsd-execute-phase 01-foundation` (Phase 1 complete)
 
 **Phase 1 completion notes:**

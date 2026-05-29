@@ -17,7 +17,7 @@ CamFlow is a two-track project — Track A (cloud web app + local agent for auto
 
 ## Phases
 
-- [ ] **Phase 1: Foundation** — Cloud backend + agent tunnel + basic hardware control with ACK protocol
+- [x] **Phase 1: Foundation** — Cloud backend + agent tunnel + basic hardware control with ACK protocol (completed 2026-05-29)
 - [ ] **Phase 2: Core UI + Preset Management** — Operator interface for camera control and preset configuration
 - [ ] **Phase 3: Auto-Director Engine** — Worship mode preset cycling, service segments, Go Live flow
 - [ ] **Phase TB: Autotracker Rebuild (Parallel)** — Two-stage AI pipeline, Kivy GUI, boundary range limit
@@ -51,7 +51,7 @@ CamFlow is a two-track project — Track A (cloud web app + local agent for auto
 - Tunnel stale threshold: 15s
 - JWT expiry: 12 hours
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [x] 01-01-PLAN.md — Cloud Backend (auth, DB, WebSocket server, REST command endpoints)
@@ -187,7 +187,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/3 | In Progress|  |
+| 1. Foundation | 3/3 | Complete   | 2026-05-29 |
 | 2. Core UI + Presets | 0/4 | Not started | - |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
