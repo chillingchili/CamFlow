@@ -3,24 +3,24 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-last_updated: "2026-05-29T07:24:40.521Z"
+last_updated: "2026-05-29T07:25:17.386Z"
 progress:
-  total_phases: 5
+  total_phases: 6
   completed_phases: 1
-  total_plans: 6
-  completed_plans: 4
+  total_plans: 20
+  completed_plans: 7
 ---
 
 # State: CamFlow
 
 **Last updated:** 2026-05-29
-**Project phase:** Phase 1 Foundation — all 3 plans complete
+**Project phase:** Phase 2 Core UI + Presets — all 3 plans complete
 
 ## Project Reference
 
 **Core value:** Hands-off automated camera direction during church live streams — the camera operator stops operating and starts overseeing.
 
-**Current focus:** Phase 1 Foundation complete. Operator frontend built (React 19 SPA with login, status bar, command panel). Ready for Phase 2: Core UI + Presets.
+**Current focus:** Phase 2 complete. Backend API extended with preset CRUD + PTZ movement. Ready for Phase 3: Auto-Director Engine.
 
 **Key constraints:**
 - NDI protocol only (BirdDog camera, not VISCA)
@@ -32,21 +32,21 @@ progress:
 
 ## Current Position
 
-**Phase:** Phase 2 Core UI + Presets — 3 of 4 plans complete (latest: 02-03 PTZ Joystick)
-**Plan:** 3 of 4 plans complete (Phase 2)
-**Status:** In progress — 1 plan remaining (02-04 Joystick UI)
+**Phase:** Phase 2 Core UI + Presets — 4 of 4 plans complete
+**Plan:** 4 of 4 plans complete (Phase 2)
+**Status:** Complete — all Phase 2 plans executed
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-05-29 |
-| 2. Core UI + Presets | 3/4 | In progress | - |
+| 2. Core UI + Presets | 4/4 | Complete | 2026-05-29 |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
 | 4. Sermon + Feed + Integration | 0/4 | Not started | - |
 | 5. Remote Feed + Hardening | 0/2 | Not started | - |
 
 ```
-Progress:  ████████████░░░░░░░░ 6/15 plans complete
+Progress:  ███████░░░░░░░░░░░░░░░ 7/20 plans complete
 ```
 
 ## Performance Metrics
@@ -65,6 +65,7 @@ Progress:  ████████████░░░░░░░░ 6/15 pla
 | Phase 01-foundation P01-02 | 14min | 3 tasks | 13 files |
 | Phase 02-core-ui-preset-management P02-03 | 4min | 3 tasks | 4 files |
 | Phase 02-core-ui-preset-management P02-03 | 4 | 3 tasks | 4 files |
+| Phase 02-core-ui-preset-management P02-01 | 5 | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -91,6 +92,7 @@ Progress:  ████████████░░░░░░░░ 6/15 pla
 - [Phase 01-foundation]: Agent reconnect uses exponential backoff 1s-30s with ±50% jitter to prevent thundering herd
 - [Phase 02-core-ui-preset-management]: Router-side input validation for PTZ movement (direction whitelist + speed range) before hardware delegation for fast-fail ACK errors
 - [Phase 02-core-ui-preset-management]: Router-side input validation for PTZ movement (direction whitelist + speed range) before hardware delegation for fast-fail ACK errors
+- [Phase 02-core-ui-preset-management]: Partial PUT updates use dynamic SQL columns — only provided fields in request body update the corresponding columns
 
 ### Pitfalls Being Actively Avoided
 
@@ -120,7 +122,7 @@ Progress:  ████████████░░░░░░░░ 6/15 pla
 
 ## Session Continuity
 
-**Last session:** 2026-05-29T07:24:40.518Z
+**Last session:** 2026-05-29T07:25:17.382Z
 **Next action:** `/gsd-execute-phase 02-core-ui-preset-management` (Plan 02-04: Joystick UI) or continue with `/gsd-plan-phase 3` if Phase 2 complete
 
 **Phase 1 completion notes:**

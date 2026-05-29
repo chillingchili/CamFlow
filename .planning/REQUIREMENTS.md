@@ -27,10 +27,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Preset Management
 
-- [ ] **PRESET-01**: Operator can configure 8 preset slots, each with a name, PTZ preset number (1-8), active toggle, and sort order
-- [ ] **PRESET-02**: Operator can toggle a preset active/inactive to include or exclude it from this week's auto-director cycle without deleting the configuration
-- [ ] **PRESET-03**: Operator can reorder presets by dragging to change the auto-director cycle sequence
-- [ ] **PRESET-04**: Each preset has a configurable settle time (delay after recall before cutting to it, default 2.5 seconds per research recommendation)
+- [x] **PRESET-01**: Operator can configure 8 preset slots, each with a name, PTZ preset number (1-8), active toggle, and sort order
+- [x] **PRESET-02**: Operator can toggle a preset active/inactive to include or exclude it from this week's auto-director cycle without deleting the configuration
+- [x] **PRESET-03**: Operator can reorder presets by dragging to change the auto-director cycle sequence
+- [x] **PRESET-04**: Each preset has a configurable settle time (delay after recall before cutting to it, default 2.5 seconds per research recommendation)
 
 ### Timing Configuration
 
@@ -112,10 +112,10 @@ Which phases cover which requirements. Updated during roadmap creation (2026-05-
 | SEG-04 | Phase 3 | Pending |
 | SEG-05 | Phase 3 | Pending |
 | SEG-06 | Phase 3 | Pending |
-| PRESET-01 | Phase 2 | Pending |
-| PRESET-02 | Phase 2 | Pending |
-| PRESET-03 | Phase 2 | Pending |
-| PRESET-04 | Phase 2 | Pending |
+| PRESET-01 | Phase 2 | Complete |
+| PRESET-02 | Phase 2 | Complete |
+| PRESET-03 | Phase 2 | Complete |
+| PRESET-04 | Phase 2 | Complete |
 | AUTH-01 | Phase 1 | Complete |
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |

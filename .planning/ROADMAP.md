@@ -76,7 +76,7 @@ Plans:
 4. Operator switches between Cam 1 (PTZ) and Cam 2 (Wide) using large labeled buttons with the active camera prominently highlighted
 5. Presets configured in Setup screen are immediately available for recall in the Live view — configuration persists across browser sessions and cloud redeploys (SQLite on Railway volume mount)
 
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 ---
 
@@ -188,7 +188,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-05-29 |
-| 2. Core UI + Presets | 1/3 | In Progress|  |
+| 2. Core UI + Presets | 2/3 | In Progress|  |
 | 3. Auto-Director Engine | 0/3 | Not started | - |
 | TB. Autotracker Rebuild | 0/4 | Not started (parallel) | - |
 | 4. Sermon + Feed + Integration | 0/4 | Not started | - |
