@@ -1,4 +1,5 @@
 import { PresetGrid } from '../components/PresetGrid';
+import { Joystick } from '../components/Joystick';
 
 export function Setup() {
   return (
@@ -14,9 +15,8 @@ export function Setup() {
         <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
           PTZ Control
         </h2>
-        {/* Placeholder for Joystick (Task 3) */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 text-center text-gray-400">
-          PTZ joystick coming soon
+        <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <Joystick />
         </div>
       </section>
     </div>

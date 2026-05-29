@@ -1,4 +1,5 @@
 import { CameraSwitcher } from '../components/CameraSwitcher';
+import { Joystick } from '../components/Joystick';
 
 export function Live() {
   return (
@@ -10,14 +11,14 @@ export function Live() {
         <CameraSwitcher />
       </section>
 
-      {/* Collapsible Joystick placeholder (Task 3) */}
+      {/* Collapsible Joystick */}
       <section className="mt-8">
         <details className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
           <summary className="p-4 text-sm font-medium text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-800 dark:hover:text-gray-100 select-none">
             PTZ Joystick
           </summary>
-          <div className="p-4 pt-0 text-center text-gray-400">
-            PTZ joystick coming soon
+          <div className="px-4 pb-4">
+            <Joystick />
           </div>
         </details>
       </section>
